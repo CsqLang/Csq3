@@ -1,0 +1,58 @@
+#if !defined(csq_typing)
+#define csq_typing 
+    #include "../base/str.h"
+    #include "../base/code_analysis.h"
+    #include "../base/errors.h"
+    /*
+    ********************For Parser ************************
+    */
+    bool file_exists(const char *filename)
+    {
+        FILE *fp = fopen(filename, "r");
+        bool is_exist = false;
+        if (fp != NULL)
+        {
+            is_exist = true;
+            fclose(fp); // close the file
+        }
+        return is_exist;
+    }
+
+    auto import_authe(str ln){
+        if(file_exists(ln.Str) == 0){
+            csq_error::ImportError ie;
+            ie.filename = ln;
+            raise(ie);
+        }
+    }
+    auto __import__(str path){
+        // cls += name + "{\n";
+        import_authe(path);
+        str read_ = read(path,1000000);
+        return read_ + "\n";
+    }
+
+    auto replace__import__(str ln,str curr){
+        str path = replaceStr(ln.Str,"import ","");
+        path = replaceStr(path.Str,".","/");
+        str spacesep = replaceStr(path.Str,"/"," ");
+        auto splitted = split(spacesep," ");
+        str re;
+        if(path == splitted[splitted.len()-1]){
+            re = curr + "/";
+            re += path + ".csqm";
+        }
+        else{
+            re = path + ".csqm";
+        }
+        // printf("%s \n\n\n\n\n",re.Str);
+        return __import__(re);
+    }
+
+
+    // ********************************** Useful in Code ***************************
+
+    //Scopes
+    #define go {
+    #define ends }
+#endif // csq_typing   

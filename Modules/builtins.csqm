@@ -1,0 +1,188 @@
+#if !defined(mainutils_csqm)
+#define mainutils_csqm
+    #include "headers/comb.h"
+#endif // mainutils_csqm
+
+def raise(exception::KeyError ke){;
+    ke.getError();
+};
+
+def raise(exception::MemoryEstrangementError e){;
+    e.getError();
+};
+
+def raise(exception::IndexBoundError ibe){;
+    ibe.getError();
+};
+
+def raise(exception::ValueError ve){;
+    ve.getError();
+};
+
+def id(void* add){;
+    return (long int)(add);
+};
+
+def range(int start, int lim, int step = 1){;
+    array<int> res;
+    for int i = start; i < lim; i+=step so
+        res += i;
+    ends;
+    return res;
+};
+
+def range(int lim, int step = 1){;
+    array<int> res;
+    for int i = 0; i < lim; i+=step so
+        res += i;
+    ends;
+    return res;
+};
+
+def tostr(int num){;
+    return to_str(num);
+};
+
+def tostr(double num){;
+    return to_str(num);
+};
+
+def tostr(str s){;
+    return to_str(s);
+};
+
+def tostr(array<int> arr){;
+    str s = "[ ";
+    for int i : arr so
+        s += tostr(i);
+        s += ", ";
+    ends;
+    return s+"]";
+};
+
+def tostr(array<str> arr){;
+    str s = "[ ";
+    for str i : arr so
+        s += "\"";
+        s += tostr(i);
+        s += "\", ";
+    ends;
+    return s+"]";
+};
+
+def tostr(array<double> arr){;
+    str s = "[ ";
+    for double i : arr so
+        s += to_str(i);
+        s += ", ";
+    ends;
+    return s+"]";
+};
+
+def tostr(dict<str,str> d){;
+    str s;
+    for var key : d.keys so
+        s += tostr(key) + " : ";
+        s += tostr(d[key]) + ", ";
+    ends;
+    return s;
+};
+
+def tostr(dict<str,int> d){;
+    str s;
+    for var key : d.keys so
+        s += tostr(key) + " : ";
+        s += tostr(d[key]) + ", ";
+    ends;
+    return s;
+};
+
+def tostr(dict<str,double> d){;
+    str s;
+    for var key : d.keys so
+        s += tostr(key) + " : ";
+        s += tostr(d[key]) + ", ";
+    ends;
+    return s;
+};
+
+def tostr(dict<int,str> d){;
+    str s;
+    for var key : d.keys so
+        s += tostr(key) + " : ";
+        s += tostr(d[key]) + ", ";
+    ends;
+    return s;
+};
+
+def tostr(dict<int,int> d){;
+    str s;
+    for var key : d.keys so
+        s += tostr(key) + " : ";
+        s += tostr(d[key]) + ", ";
+    ends;
+    return s;
+};
+
+def tostr(dict<int,double> d){;
+    str s;
+    for var key : d.keys so
+        s += tostr(key) + " : ";
+        s += tostr(d[key]) + ", ";
+    ends;
+    return s;
+};
+
+def tostr(dict<double,str> d){;
+    str s;
+    for var key : d.keys so
+        s += tostr(key) + " : ";
+        s += tostr(d[key]) + ", ";
+    ends;
+    return s;
+};
+
+def tostr(dict<double,int> d){;
+    str s;
+    for var key : d.keys so
+        s += tostr(key) + " : ";
+        s += tostr(d[key]) + ", ";
+    ends;
+    return s;
+};
+
+def tostr(dict<double,double> d){;
+    str s;
+    for var key : d.keys so
+        s += tostr(key) + " : ";
+        s += tostr(d[key]) + ", ";
+    ends;
+    return s;
+};
+
+template<typename T> def print(T t){;
+    printf("%s",tostr(t).Str);
+};
+
+template<typename T, typename... Args> def print(T t, Args... params){;
+    printf("%s",tostr(t).Str);
+    print(params...);
+};
+
+template<typename T> def println(T t){;
+    printf("%s\n",tostr(t).Str);
+};
+
+template<typename T, typename... Args> def println(T t, Args... params){;
+    printf("%s\n",tostr(t).Str);
+    print(params...);
+};
+
+// *******************Section-->Exceptions*****************;
+//overloadings of raise function
+//This function will return the memory address of an object.;
+//This function will return an array which could be iterated using for loop.
+////////////////////////String conversion utils////////
+//////////////////////// IO ////////////////////////
+//Print function;
+//Println function;
