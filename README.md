@@ -23,17 +23,19 @@ This is one more version of Csq programming language which's syntax looks much s
   
  <h3>Functions</h3>
 
-> def fizz(){
-    return str("BUZZ")
-  }
+> def fizz(){<br>
+    return str("BUZZ")<br>
+  }<br>
 
 
  <h3>Functions with arguments</h3>
 
-> def fizz(str name){
-    return name + " BUZZ"
-  }
-  fizz("Aniket")
+> def fizz(str name){<br>
+    return name + " BUZZ"<br>
+  }<br>
+  fizz("Aniket")<br>
 
 ## New keywords::
 > ["go","so","ends","meth"]
+## To comment 
+> to comment you could either use # or //
