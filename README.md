@@ -21,6 +21,19 @@ This is one more version of Csq programming language which's syntax looks much s
   print(i,",") <br>
   ends
   
+ <h3>Functions</h3>
+
+> def fizz(){
+    return str("BUZZ")
+  }
+
+
+ <h3>Functions with arguments</h3>
+
+> def fizz(str name){
+    return name + " BUZZ"
+  }
+  fizz("Aniket")
 
 ## New keywords::
 > ["go","so","ends","meth"]
