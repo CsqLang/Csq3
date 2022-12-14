@@ -147,6 +147,43 @@ def tostr(dict<double,double> d){
     ends
     return s
 }
+
+//////////////////////// Smart Pointers ////////////
+template<typename T>class SmartPtr go
+    public:
+        T* ptr;
+        int free_call = 0;
+        SmartPtr() go
+            
+        ends
+        SmartPtr(T* ptr) go
+            this->ptr = ptr;
+        ends
+        SmartPtr(T v){
+            this->ptr = new T(v);
+        }
+        meth free(){
+            free_call=1;
+            delete this->ptr;
+        }
+        
+        //This method is used to allocate the memory.
+        meth allocate(T val){
+            free_call = 0;
+            // delete ptr;
+            this->ptr = new T(val);
+        }
+        ~SmartPtr(){
+            if(free_call == 0){
+                // char buffer[10];
+                // char *ptr = new char[20];
+                printf("Memory not is not deallocated so deallocating it at : ")
+                printf("\033[31m%p\033[0m\n",this->ptr);
+                delete ptr; 
+            }
+        }
+ends
+
 //////////////////////// IO ////////////////////////
 
 #Print function
@@ -164,4 +201,12 @@ template<typename T> def println(T t){
 template<typename T, typename... Args> def println(T t, Args... params){
     printf("%s\n",tostr(t).Str);
     print(params...)
+}
+
+//Function to take input
+def input(str prompt = ""){
+    printf("%s",prompt.Str)
+    char i[900000]
+    scanf("%[^\n]s",i)
+    return str(i)
 }
