@@ -11,6 +11,11 @@ It's processes are similar to the in the programming language Nim but here what 
 <li>Code of CsqV2 couldn't be used in this.</li>
 <li>You could add new tokens to it by changine base/token.h.</li>
 
+## How to build Csq?
+#### On linux:
+> `git clone https://github.com/AniketKumar2500/Csq-Version3.git <br>
+> `cd Csq-Version3 && bash build.sh
+
 ## Some examples:
 
 <h3>Hello World</h3>
