@@ -10,6 +10,7 @@
     #define ends }
     #define meth auto
     #define for for(
+    #define ref &
     char *strcat(char *s1, const char *s2)
     {
         //Pointer should not null pointer
