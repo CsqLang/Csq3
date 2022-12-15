@@ -9,7 +9,7 @@ It's processes are similar to the in the programming language Nim but here what 
 <li>Syntax for for loop is enhanced.</li>
 <li>Speed of imported module is faster.</li>
 <li>Code of CsqV2 couldn't be used in this.</li>
-<li>You could add new tokens to it by changine base/token.h.</li>
+<li>You could add new tokens to it by changing base/token.h.</li>
 
 ## How to build Csq?
 <li> git clone https://github.com/AniketKumar2500/Csq-Version3.git </li>
@@ -21,26 +21,46 @@ It's processes are similar to the in the programming language Nim but here what 
 
 > print("Hello World")
 
+<h3>Creating Variables</h3>
+
+> var i = 48 <br>
+  //int i = 48
 <h3>For loop</h3>
 
 > for var i : range(11) so <br>
-  print(i,",") <br>
+  &nbsp;print(i,",") <br>
   ends
   
  <h3>Functions</h3>
 
 > def fizz(){<br>
-    return str("BUZZ")<br>
+    &nbsp;return str("BUZZ")<br>
   }<br>
 
 
  <h3>Functions with arguments</h3>
 
 > def fizz(str name){<br>
-    return name + " BUZZ"<br>
+    &nbsp;return name + " BUZZ"<br>
   }<br>
   fizz("Aniket")<br>
 
+<h3>Creating Classes</h3>
+> class num go<br>
+  &nbsp;public:<br>
+  &nbsp;&nbsp;int n = 0<br>
+  &nbsp;&nbsp;num(int n){<br>
+  &nbsp;&nbsp;&nbsp;this->n = n<br>
+  &nbsp;&nbsp;}<br>
+  &nbsp;&nbsp;meth square(){<br>
+  &nbsp;&nbsp;&nbsp;return this->n * this->n<br>
+  &nbsp;&nbsp;}<br>
+  ends<br>
+  //Creating an object.<br>
+  var n = num(5)<br>
+  n.square()<br>
+  
+  
 ## New keywords::
 > ["go","so","ends","meth"]
 ## To comment 
