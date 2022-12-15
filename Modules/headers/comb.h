@@ -9,13 +9,15 @@
     #define var auto
     #define ends }
     #define meth auto
-    #define for for(
+    #define if if( 
     #define ref &
+    #define for for(
     char *strcat(char *s1, const char *s2)
     {
         //Pointer should not null pointer
-        if((s1 == NULL) && (s2 == NULL))
+        if (s1 == NULL) && (s2 == NULL) so
             return NULL;
+        ends
         //Create copy of s1
         char *start = s1;
         //Find the end of the destination string
@@ -32,15 +34,15 @@
         //Append null character in the last
         *start = '\0';
         return s1;
-    }
+    };
     int strcmp(const char *X, const char *Y)
     {
         while (*X)
         {
             // if characters differ, or end of the second string is reached
-            if (*X != *Y) {
+            if *X != *Y so
                 break;
-            }
+            ends
     
             // move to the next pair of characters
             X++;
@@ -64,7 +66,9 @@
         // if destination is NULL we can't copy to the address, likely something has 
         // gone wrong perhaps in allocating space for destination, so we just retunr
         // NULL in this case
-        if (destination == NULL) return NULL;
+        if destination == NULL so
+            return NULL;
+        ends
         
         // use counter variable i to keep track of our index into the destination
         // and source character arrays, start at first index
@@ -122,10 +126,10 @@
             auto operator==(const str& s){
                 bool state = 1;
                 for int i=0;i<strlen(Str);i++ so
-                    if(this->Str[i] != s.Str[i]){
+                    if this->Str[i] != s.Str[i] so
                         state = 0;
                         break;
-                    }
+                    ends
                 ends
                 return state;
             }
@@ -133,10 +137,10 @@
             auto operator!=(const str& s){
                 bool state = 0;
                 for int i=0;i<strlen(Str);i++ so
-                    if(this->Str[i] != s.Str[i]){
+                    if this->Str[i] != s.Str[i] so
                         state = 1;
                         break;
-                    }
+                    ends
                 ends
                 return state;
             }
@@ -172,8 +176,9 @@
     str& str::operator=(
         const str& rhs)
     {
-        if (this == &rhs)
+        if this == &rhs so
             return *this;
+        ends
         delete[] Str;
         Str = new char[strlen(rhs.Str) + 1];
         strcpy(Str, rhs.Str);
@@ -301,10 +306,10 @@
     // with one arguments
     str::str(char* val)
     {
-        if (val == nullptr) {
+        if val == nullptr so
             Str = new char[1];
             Str[0] = '\0';
-        }
+        ends
 
         else {
 
@@ -317,10 +322,10 @@
         }
     }
     str::str(const char* ch){
-        if (ch == nullptr) {
+        if ch == nullptr so
             Str = new char[1];
             Str[0] = '\0';
-        }
+        ends
 
         else {
 
@@ -438,7 +443,7 @@
                 // capacity, that means we don't have space to
                 // accommodate more elements. We need to double the
                 // capacity
-                if (current == capacity) {
+                if current == capacity so
                     T* temp = new T[2 * capacity];
         
                     // copying old array elements to new array
@@ -450,7 +455,7 @@
                     delete[] arr;
                     capacity *= 2;
                     arr = temp;
-                }
+                ends
                 // Inserting data
                 arr[current] = data;
                 current++;
@@ -461,19 +466,19 @@
             auto erase(T e){
                 int i;
                 for i=0; i<this->current; i++ so
-                    if (this->arr[i] == e)
+                    if this->arr[i] == e so
                         break;
+                    ends
                 ends
                 // If element found in array
-                if (i < this->current)
-                {
+                if i < this->current so
                     // reduce size of array and move all
                     // elements on space ahead
                     this->current = this->current - 1;
                     for int j=i; j<this->current; j++ so
                         arr[j] = arr[j+1];
                     ends
-                }
+                ends
             }
             auto pop(){current--;}
             T* begin() { return &this->arr[0];}
@@ -481,7 +486,7 @@
             T* end() { return &this->arr[this->current]; }
             const T* end() const { return &this->arr[this->current];}
             // ~basic_array(){delete[] arr;}
-    };//basic_array
+    ends;//basic_array
 
 
 
@@ -491,9 +496,9 @@
          private:
             auto abs(double value){
                 double nv = value;
-                if(value < 0){
+                if value < 0 so
                     nv = nv*(-1);
-                }
+                ends
                 return nv;
             }
          public:
@@ -501,19 +506,19 @@
          public:
             array(){}
             array(std::initializer_list<T> il){
-                for auto i : il){
+                for auto i : il so
                     this->arr.push(i);
-                }
+                ends
             }
             array(const array<T>& arr){
-                for auto i : arr){
+                for auto i : arr so
                     this->arr.push(i);
-                }
+                ends
             }  
             array(T arr[],int size){
-                for int i=0;i<(size);i++){
+                for int i=0;i<(size);i++ so
                     this->arr.push(arr[i]);
-                }
+                ends
             }
             //Iterators for for each loop.
             T* begin() { return &this->arr.arr[0];}
@@ -525,26 +530,28 @@
             //Reading data
             auto operator[](int index){
                 T ret;
-                if(index<arr.current){
+                if index<arr.current so
                     ret = arr[index];
-                }
-                else{
+                ends
+                else go
                     exception::IndexBoundError ie;
                     ie.getError();
-                }
+                ends
                 return ret;
             }
             //Adding data
             auto operator+=(T element){arr.push(element);}
             auto operator=(array<T> arr){
-                for int i = 0; i<arr.len();i++){
+                for int i = 0; i<arr.len();i++ so
                    this->arr.push(arr[i]);
-                }
+                ends
             }
             auto operator==(array<T> arr){
                 bool state = 1;
-                for int i=0;i<arr.len();i++){
-                    if(this->arr[i]!=arr[i]){state = 0;}
+                for int i=0;i<arr.len();i++ so
+                    if this->arr[i]!=arr[i] so
+                        state = 0;
+                    ends
                 }
                 return state;
             }
@@ -557,16 +564,16 @@
             //Operator for slicing
             auto operator()(int from,int till,int steps=1){
                 array<T> n;
-                for int i=from-1;i<till;i+=steps){
+                for int i=from-1;i<till;i+=steps so
                     n.add(this->arr[i]);
-                }
+                ends
                 return n;
             }
             auto operator()(int till,int steps=1){
                 array<T> n;
-                for int i=0;i<till;i+=steps){
+                for int i=0;i<till;i+=steps so
                     n.add(this->arr[i]);
-                }
+                ends
                 return n;
             }
             //This method will allocate the memory.
@@ -582,7 +589,7 @@
             //This method returns the count of the element inside the array.
             auto count(T element){
                 int count = 0;
-                for int i = 0; i < this->arr.current; i++){
+                for int i = 0; i < this->arr.current; i++ so
                     switch (this->arr[i] == element)
                     {
                         case 1:
@@ -592,21 +599,21 @@
                     }
                 }
                 return count;
-            }
+            ends
             //This method returns the sum of all elements in the array.
             auto sum(){
                 T sum_ = 0;
-                for auto i : this->arr){
+                for auto i : this->arr so 
                     sum_ += i;
-                }
+                ends
                 return sum_;
             }
             //This method returns the product of all elements in the array.
             auto product(){
                 T product_ = 1;
-                for auto i : this->arr){
+                for auto i : this->arr so
                     product_ = product_ * i;
-                }
+                ends
                 return product_;
             }
             //This method returns the mean of all elements in the array.
@@ -618,8 +625,7 @@
                 for int j = 0; j < this->arr.current - 1; j++ so
                         // Checking the condition for two
                         // simultaneous elements of the array
-                        if (arr[j] > arr[j + 1])
-                        {
+                        if arr[j] > arr[j + 1] so
                             // Swapping the elements.
                             T temp = arr[j];
                             arr.update(j,arr[j + 1]);
@@ -630,8 +636,8 @@
                             // in the loop it becomes 0 and
                             // the loop begins from the start.
                             j = -1;
-                        }
-                    }
+                        ends
+                    ends
             }
             //This method returns the median of all elements in the array
             auto median(){
@@ -640,7 +646,7 @@
                 double med;
                 /*if number of elements is even then formula
                 median = ((n/2)th + (n/2+1)th)/2*/
-                if(this->arr.current % 2 == 0){
+                if this->arr.current % 2 == 0){
                     med = (arr[(this->arr.current/2)]+arr[(this->arr.current/2)-1])/2.0;
                 }
                 //else number of elements is odd so formula n+1/2 th term.
@@ -656,11 +662,11 @@
                 //assume that the maximum value is at arr[0];
                 T max__= this->arr[0];
                 //for each loop to work with every element.
-                for auto i : arr){
-                    if(i > max__){
+                for auto i : arr so
+                    if i > max__ so
                         max__ = i;
-                    }
-                }
+                    ends
+                ends
                 //returning the maximum value.
                 return max__;
             }
@@ -670,7 +676,7 @@
                 T max__= this->arr[0];
                 //for each loop to work with every element.
                 for auto i : arr){
-                    if(i < max__){
+                    if i < max__){
                         max__ = i;
                     }
                 }
@@ -687,7 +693,7 @@
                 T ret;
                 for int i=0;i<e2.len();i++ so
                     //Getting at what the element is equal to max count.
-                    if(e2[i] == e2.max()){
+                    if e2[i] == e2.max()){
                         ret = arr[i];
                     }
                 ends
@@ -704,7 +710,7 @@
             auto find(T element){
                 array<int> index;
                 for int i=0;i<this->len();i++ so
-                    if(this->arr[i] == element){
+                    if this->arr[i] == element){
                         index.add(i);
                         // break;
                     }
@@ -714,7 +720,7 @@
             //This method replaces the occurence of element in the array.
             auto replace(T real_element, T new_element){
                 for int i=0;i<this->arr.current;i++ so
-                    if(this->arr[i] == real_element){
+                    if this->arr[i] == real_element){
                         this->arr.update(i,new_element);
                     }
                 ends
@@ -759,7 +765,7 @@
                     a += i;
                 }
                 for int i=0;i<a.len();i++ so
-                    if(a[i] == notation){
+                    if a[i] == notation){
                         a.update(i,subtr);
                     }
                 }
@@ -772,7 +778,7 @@
             auto isnull(str notation = "NaN"){
                 int len = 0;
                 for auto i : this->arr so
-                    if(i == notation){
+                    if i == notation){
                         len++;
                     }
                 ends
@@ -786,12 +792,14 @@
                 for int i = 0; i < this->len(); i++ so
                     int j = 0;
                     for j = 0; j < i; j++ so
-                        if (arr[i] == arr[j])
+                        if arr[i] == arr[j] so
                             break;
+                        ends
                     ends
                     // If not printed earlier, then print it
-                    if (i == j)
+                    if i == j so
                         e.add(arr[i]);
+                    ends
                 ends
                 return e;
             };
@@ -814,16 +822,16 @@
                 V val;
                 bool in__ = false;
                 for int i=0;i<this->keys.len();i++ so
-                    if(key == this->keys[i]){
+                    if key == this->keys[i] so
                         val = this->values[i];
                         in__ = true;
                         break;
-                    }
+                    ends
                 }
-                if(in__ == false){
+                if in__ == false so
                     exception::KeyError ke;
                     ke.getError();  
-                }
+                ends
                 return val;
             }
             auto operator=(dict<K,V> d){
@@ -836,15 +844,15 @@
             auto update(K key,K val){
                 bool there = 0;
                 for int i=0;i<keys.len();i++ so
-                    if(key == keys[i]){
+                    if key == keys[i] so
                         values.update(i,val);
                         there = 1;
-                    }
+                    ends
                 }
-                if(there == 0){
+                if there == 0 so
                     keys.add(key);
                     values.add(val);
-                }
+                ends
             ends
             //This method returns a str representation of the dictionary
             auto readall(){
