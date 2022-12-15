@@ -159,29 +159,29 @@ template<typename T>class SmartPtr go
         SmartPtr(T* ptr) go
             this->ptr = ptr;
         ends
-        SmartPtr(T v){
+        SmartPtr(T v) go
             this->ptr = new T(v);
-        }
-        meth free(){
+        ends
+        meth free() go
             free_call=1;
             delete this->ptr;
-        }
+        ends
         
         //This method is used to allocate the memory.
-        meth allocate(T val){
+        meth allocate(T val) go
             free_call = 0;
             // delete ptr;
             this->ptr = new T(val);
-        }
-        ~SmartPtr(){
-            if(free_call == 0){
+        ends
+        ~SmartPtr() go
+            if free_call == 0 so
                 // char buffer[10];
                 // char *ptr = new char[20];
                 printf("Memory not is not deallocated so deallocating it at : ")
                 printf("\033[31m%p\033[0m\n",this->ptr);
                 delete ptr; 
-            }
-        }
+            ends
+        ends
 ends
 
 //////////////////////// IO ////////////////////////
