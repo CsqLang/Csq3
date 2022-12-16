@@ -148,6 +148,15 @@ def tostr(dict<double,double> d){
     return s
 }
 
+def tostr(dict<str,array<str>> d){;
+    str s;
+    for var key : d.keys so
+        s += key + " : ";
+        s += tostr(d[key]) + ",\n";
+    ends;
+    return s;
+};
+
 //////////////////////// Smart Pointers ////////////
 template<typename T>class SmartPtr go
     public:
