@@ -163,8 +163,8 @@ def tostr(dict<double,double> d){;
 def tostr(dict<str,array<str>> d){;
     str s;
     for var key : d.keys so
-        s += key + " : [";
-        s += tostr(d[key]) + "],\n";
+        s += key + " : ";
+        s += tostr(d[key]) + ",\n";
     ends;
     return s;
 };
