@@ -12,6 +12,8 @@
     #define if if( 
     #define ref &
     #define for for(
+    #define pub public:
+    #define priv private:
     char *strcat(char *s1, const char *s2)
     {
         //Pointer should not null pointer
