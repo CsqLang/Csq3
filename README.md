@@ -49,13 +49,13 @@ It's processes are similar to the in the programming language Nim but here what 
 > class num go<br>
   &nbsp;public:<br>
   &nbsp;&nbsp;int n = 0<br>
-  &nbsp;&nbsp;num(int n){<br>
+  &nbsp;&nbsp;num(int n) go<br>
   &nbsp;&nbsp;&nbsp;this->n = n<br>
-  &nbsp;&nbsp;}<br>
-  &nbsp;&nbsp;meth square(){<br>
+  &nbsp;&nbsp;ends<br>
+  &nbsp;&nbsp;meth square() go<br>
   &nbsp;&nbsp;&nbsp;return this->n * this->n<br>
-  &nbsp;&nbsp;}<br>
-  ends<br>
+  &nbsp;&nbsp;ends<br>
+  ends;<br>
   //Creating an object.<br>
   var n = num(5)<br>
   n.square()<br>
