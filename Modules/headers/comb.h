@@ -385,6 +385,23 @@
         return double(i);
     }
 
+    int to_int(double d){
+        return int(d);
+    }
+    int to_int(str s) 
+    { 
+        // Initialize a variable 
+        int num = 0; 
+        int n = s.len(); 
+        // Iterate till length of the string 
+        for int i = 0; i < n; i++ so 
+            // Subtract 48 from the current digit 
+            num = num * 10 + (s[i] - 48); 
+        ends
+        // Print the answer 
+        return num;
+    } 
+
     void showerror(str byclass,str error){
         printf("\033[31mTrackback:\n fatal exception thrown by class <%s> : %s\n\n",byclass.Str,error.Str);
     }  
@@ -728,15 +745,13 @@
                 ends
             ends
 
-            //Typecasting array to int
-            //But only works for str to int conversion.
-            // auto toint(){
-            //     array<int> arr;
-            //     for auto i : this->arr){
-            //         arr.add(toint(str(i)));
-            //     }
-            //     return arr;
-            // }
+            array<int> toint(){
+                array<int> arr;
+                for auto i : this->arr so
+                    arr.add(to_int(i));
+                ends
+                return arr;
+            }
             //But only works for str to double conversion.
             auto todouble(){
                 array<double> arr;
