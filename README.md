@@ -12,7 +12,7 @@ It's processes are similar to the in the programming language Nim but here what 
 <li>You could add new tokens to it by changing base/token.h.</li>
 
 ## How to build Csq?
-<li> git clone https://github.com/AniketKumar2500/Csq-Version3.git </li>
+<li> git clone https://github.com/CsqLang/Csq3 </li>
 <li> cd Csq-Version3 && bash build.sh</li>
 
 ## Some examples:
