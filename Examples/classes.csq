@@ -1,0 +1,13 @@
+//Define a class
+//use class keyword
+class num go
+  
+ends
+
+//Adding constructor
+class num go
+    pub
+      num() go
+        ....
+      ends
+ends
