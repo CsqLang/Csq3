@@ -1,8 +1,9 @@
-g++ csq.cpp -o csq &&
-g++ mcsq.cpp -o mcsq &&
+sudo apt install clang && 
+clang++ csq.cpp -o csq &&
+clang++ mcsq.cpp -o mcsq &&
 cd base &&
-g++ * &&
+clang++ * &&
 cd .. &&
 cd Modules/headers &&
-g++ * &&
+clang++ * &&
 cd ..
