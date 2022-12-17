@@ -54,7 +54,7 @@
         //Delim is \n because we would like to read each line.
         array<str> newcode;
         for(auto i : raw_code)
-            if(find_str(i.Str,str("for").Str) == 0 && find_str(i.Str,str("class").Str) == 0 && find_str(i.Str,str("#include").Str) == 0 && find_str(i.Str,str("//").Str) == 0 && find_str(i.Str,str(";").Str) == 0 && find_str(i.Str,str("import").Str) == 0){
+            if(find_str(i.Str,str("for").Str) == 0 && find_str(i.Str,str("class").Str) == 0 && find_str(i.Str,str("#include").Str) == 0 && find_str(i.Str,str("//").Str) == 0 && find_str(i.Str,str(";").Str) == 0 && find_str(i.Str,str("import").Str) == 0 && find_str(i.Str,str("ends").Str) == 0){
                 newcode += i + ";";
             }
             else{
