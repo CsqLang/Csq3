@@ -2,7 +2,7 @@
 This is one more version of Csq programming language which's syntax looks much similar to Python and much faster than Csq Version-2.
 
 # Requirement
-> You should have clang++ compiler
+> You should have g++ compiler
 
 ## How does it works in backend?
 It's processes are similar to the in the programming language Nim but here what it does it that a Intermediate code converter converts .csq to .csqm and later .csqm is converted to .cpp and it uses a prebuilt C++ compiler such as in this it uses clang++ to produce output.
