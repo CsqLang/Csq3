@@ -22,7 +22,7 @@ void compile_IR(str current_path, str path, str name){
     write((current_path+name+".cpp").Str,code);
     str command = "cd ";
     command += current_path;
-    command += " && clang++ -O0 ";
+    command += " && g++ ";
     command += current_path+name+".cpp -o ";
     command += name;
     system(command.Str);
