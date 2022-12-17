@@ -1,0 +1,7 @@
+//Using var keyword
+//creating int var
+var v = int(38)
+//creating str var
+var s = str("HI")
+//creating decimal var
+var d = double(473.34)
