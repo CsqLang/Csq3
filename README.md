@@ -37,26 +37,26 @@ It's processes are similar to the in the programming language Nim but here what 
   
  <h3>Functions</h3>
 
-> def fizz() go<br>
+> def fizz() starts<br>
     &nbsp;return str("BUZZ")<br>
   fizz ends<br>
 
 
  <h3>Functions with arguments</h3>
 
-> def fizz(str name) go<br>
+> def fizz(str name) starts<br>
     &nbsp;return name + " BUZZ"<br>
   fizz ends<br>
   fizz("Aniket")<br>
 
 <h3>Creating Classes</h3>
-> class num go<br>
+> class num starts<br>
   &nbsp;public:<br>
   &nbsp;&nbsp;int n = 0<br>
-  &nbsp;&nbsp;num(int n) go<br>
+  &nbsp;&nbsp;num(int n) starts<br>
   &nbsp;&nbsp;&nbsp;this->n = n<br>
   &nbsp;&nbsp;ends<br>
-  &nbsp;&nbsp;meth square() go<br>
+  &nbsp;&nbsp;meth square() starts<br>
   &nbsp;&nbsp;&nbsp;return this->n * this->n<br>
   &nbsp;&nbsp;ends<br>
   ends;<br>
