@@ -37,16 +37,16 @@ It's processes are similar to the in the programming language Nim but here what 
   
  <h3>Functions</h3>
 
-> def fizz(){<br>
+> def fizz() go<br>
     &nbsp;return str("BUZZ")<br>
-  }<br>
+  fizz ends<br>
 
 
  <h3>Functions with arguments</h3>
 
-> def fizz(str name){<br>
+> def fizz(str name) go<br>
     &nbsp;return name + " BUZZ"<br>
-  }<br>
+  fizz ends<br>
   fizz("Aniket")<br>
 
 <h3>Creating Classes</h3>
