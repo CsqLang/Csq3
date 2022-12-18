@@ -205,7 +205,7 @@ template<typename T, typename... Args> def print(T t, Args... params){
 }
 #Println function
 template<typename T> def println(T t){
-    printf("%s\n",tostr(t).Str);
+    printf("%s",tostr(t).Str);
 }
 template<typename T, typename... Args> def println(T t, Args... params){
     printf("%s",tostr(t).Str);
