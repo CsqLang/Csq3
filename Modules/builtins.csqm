@@ -3,197 +3,194 @@
     #include "headers/comb.h"
 #endif // mainutils_csqm
 
-def raise(exception::KeyError ke){;
+def raise(exception::KeyError ke) go;
     ke.getError();
-};
+ ends
 
-def raise(exception::MemoryEstrangementError e){;
+def raise(exception::MemoryEstrangementError e) go;
     e.getError();
-};
+ ends
 
-def raise(exception::IndexBoundError ibe){;
+def raise(exception::IndexBoundError ibe) go;
     ibe.getError();
-};
+ ends
 
-def raise(exception::ValueError ve){;
+def raise(exception::ValueError ve) go;
     ve.getError();
-};
+ ends
 
-def id(void* add){;
+def id(void* add) go;
     return (long int)(add);
-};
+ ends
 
-def range(int start, int lim, int step = 1){;
+def range(int start, int lim, int step = 1) go;
     array<int> res;
     for int i = start; i < lim; i+=step so
         res += i;
-    ends;
+    ends
     return res;
-};
+ ends
 
-def range(int lim, int step = 1){;
+def range(int lim, int step = 1) go;
     array<int> res;
     for int i = 0; i < lim; i+=step so
         res += i;
-    ends;
+    ends
     return res;
-};
+ ends
 
-def tostr(int num){;
+def tostr(int num) go;
     return to_str(num);
-};
+ ends
 
-def tostr(double num){;
+def tostr(double num) go;
     return to_str(num);
-};
+ ends
 
-def tostr(str s){;
+def tostr(str s) go;
     return to_str(s);
-};
+ ends
 
-def tostr(array<int> arr){;
+def tostr(array<int> arr) go;
     str s = "[ ";
     for int i : arr so
         s += tostr(i);
         s += ", ";
-    ends;
+    ends
     return s+"]";
-};
+ ends
 
-def tostr(array<str> arr){;
+def tostr(array<str> arr) go;
     str s = "[ ";
     for str i : arr so
         s += "\"";
         s += tostr(i);
         s += "\", ";
-    ends;
+    ends
     return s+"]";
-};
+ ends
 
-def tostr(array<double> arr){;
+def tostr(array<double> arr) go;
     str s = "[ ";
     for double i : arr so
         s += to_str(i);
         s += ", ";
-    ends;
+    ends
     return s+"]";
-};
+ ends
 
-def tostr(dict<str,str> d){;
+def tostr(dict<str,str> d) go;
     str s;
     for var key : d.keys so
         s += tostr(key) + " : ";
         s += tostr(d[key]) + ", ";
-    ends;
+    ends
     return s;
-};
+ ends
 
-def tostr(dict<str,int> d){;
+def tostr(dict<str,int> d) go;
     str s;
     for var key : d.keys so
         s += tostr(key) + " : ";
         s += tostr(d[key]) + ", ";
-    ends;
+    ends
     return s;
-};
+ ends
 
-def tostr(dict<str,double> d){;
+def tostr(dict<str,double> d) go;
     str s;
     for var key : d.keys so
         s += tostr(key) + " : ";
         s += tostr(d[key]) + ", ";
-    ends;
+    ends
     return s;
-};
+ ends
 
-def tostr(dict<int,str> d){;
+def tostr(dict<int,str> d) go;
     str s;
     for var key : d.keys so
         s += tostr(key) + " : ";
         s += tostr(d[key]) + ", ";
-    ends;
+    ends
     return s;
-};
+ ends
 
-def tostr(dict<int,int> d){;
+def tostr(dict<int,int> d) go;
     str s;
     for var key : d.keys so
         s += tostr(key) + " : ";
         s += tostr(d[key]) + ", ";
-    ends;
+    ends
     return s;
-};
+ ends
 
-def tostr(dict<int,double> d){;
+def tostr(dict<int,double> d) go;
     str s;
     for var key : d.keys so
         s += tostr(key) + " : ";
         s += tostr(d[key]) + ", ";
-    ends;
+    ends
     return s;
-};
+ ends
 
-def tostr(dict<double,str> d){;
+def tostr(dict<double,str> d) go;
     str s;
     for var key : d.keys so
         s += tostr(key) + " : ";
         s += tostr(d[key]) + ", ";
-    ends;
+    ends
     return s;
-};
+ ends
 
-def tostr(dict<double,int> d){;
+def tostr(dict<double,int> d) go;
     str s;
     for var key : d.keys so
         s += tostr(key) + " : ";
         s += tostr(d[key]) + ", ";
-    ends;
+    ends
     return s;
-};
+ ends
 
-def tostr(dict<double,double> d){;
+def tostr(dict<double,double> d) go;
     str s;
     for var key : d.keys so
         s += tostr(key) + " : ";
         s += tostr(d[key]) + ", ";
-    ends;
+    ends
     return s;
-};
+ ends
 
-def tostr(dict<str,array<str>> d){;
+def tostr(dict<str,array<str>> d) go;
     str s;
     for var key : d.keys so
         s += key + " : ";
         s += tostr(d[key]) + ",\n";
     ends;
     return s;
-};
+ ends;
 
-template<typename T> def print(T t){;
+template<typename T> def print(T t) go
     printf("%s",tostr(t).Str);
-};
-
-template<typename T, typename... Args> def print(T t, Args... params){;
+ends
+template<typename T, typename... Args> def print(T t, Args... params) go
     printf("%s",tostr(t).Str);
     print(params...);
-};
-
-template<typename T> def println(T t){;
+ends
+template<typename T> def println(T t) go
     printf("%s",tostr(t).Str);
-};
-
-template<typename T, typename... Args> def println(T t, Args... params){;
+ends
+template<typename T, typename... Args> def println(T t, Args... params) go
     printf("%s",tostr(t).Str);
     print(params...);
     printf("\n");
-};
+ends
 
-def input(str prompt = ""){;
+def input(str prompt = "") go;
     printf("%s",prompt.Str);
     char i[900000];
     scanf("%[^\n]s",i);
     return str(i);
-};
+ ends
 
 // *******************Section-->Exceptions*****************;
 //overloadings of raise function
@@ -207,24 +204,24 @@ template<typename T>class SmartPtr go
         int free_call = 0;
         SmartPtr() go;
             ;
-        ends;
+        ends
         SmartPtr(T* ptr) go;
             this->ptr = ptr;
-        ends;
+        ends
         SmartPtr(T v) go;
             this->ptr = new T(v);
-        ends;
+        ends
         meth free() go;
             free_call=1;
             delete this->ptr;
-        ends;
+        ends
         ;
         //This method is used to allocate the memory.
         meth allocate(T val) go;
             free_call = 0;
             // delete ptr;
             this->ptr = new T(val);
-        ends;
+        ends
         ~SmartPtr() go;
             if free_call == 0 so;
                 // char buffer[10];
@@ -232,10 +229,8 @@ template<typename T>class SmartPtr go
                 printf("Memory not is not deallocated so deallocating it at : ");
                 printf("\033[31m%p\033[0m\n",this->ptr);
                 delete ptr; 
-            ends;
-        ends;
+            ends
+        ends
 ends;
 //////////////////////// IO ////////////////////////
-//Print function;
-//Println function;
 //Function to take input
