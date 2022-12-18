@@ -73,3 +73,6 @@ It's processes are similar to the in the programming language Nim but here what 
 In base directory all necessary header are present such as for code analysis, strings, arrays ...
 ## How to change add or remove operators:
 Go to base/token.h and there you will see a dictionary in which operators with their meaning in C++ are there. After changes compile csq.cpp and mcsq.cpp so that the changes can be applied.
+
+## How it will provide memory safety if garbage collector isn't there?
+Well to provide memory safety there is one class which applies the concept of Smart Pointers using this it will free the memory by it self.
