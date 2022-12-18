@@ -3,7 +3,7 @@
     
     #include <stdio.h>
     // #include <string.h>
-    #define go {
+    #define starts {
     #define so ){
     #define def auto
     #define var auto
@@ -66,7 +66,7 @@
     }
     char *strcpy(char *destination, const char *source){
         // if destination is NULL we can't copy to the address, likely something has 
-        // gone wrong perhaps in allocating space for destination, so we just retunr
+        // startsne wrong perhaps in allocating space for destination, so we just retunr
         // NULL in this case
         if destination == NULL so
             return NULL;
@@ -552,7 +552,7 @@
                 if index<arr.current so
                     ret = arr[index];
                 ends
-                else go
+                else starts
                     exception::IndexBoundError ie;
                     ie.getError();
                 ends
