@@ -3,26 +3,26 @@ import mainutils
 # *******************Section-->Exceptions*****************
 //overloadings of raise function
 
-def raise(exception::KeyError ke) go
+def raise(exception::KeyError ke) starts
     ke.getError()
 raise ends
-def raise(exception::MemoryEstrangementError e) go
+def raise(exception::MemoryEstrangementError e) starts
     e.getError()
 raise ends
-def raise(exception::IndexBoundError ibe) go
+def raise(exception::IndexBoundError ibe) starts
     ibe.getError()
 raise ends
-def raise(exception::ValueError ve) go
+def raise(exception::ValueError ve) starts
     ve.getError()
 raise ends
 
 #This function will return the memory address of an object.
-def id(void* add) go
+def id(void* add) starts
     return (long int)(add)
 id ends
 
 #This function will return an array which could be iterated using for loop.
-def range(int start, int lim, int step = 1) go
+def range(int start, int lim, int step = 1) starts
     array<int> res
     for int i = start; i < lim; i+=step so
         res += i
@@ -30,7 +30,7 @@ def range(int start, int lim, int step = 1) go
     return res
 range ends
 
-def range(int lim, int step = 1) go
+def range(int lim, int step = 1) starts
     array<int> res
     for int i = 0; i < lim; i+=step so
         res += i
@@ -39,16 +39,16 @@ def range(int lim, int step = 1) go
 range ends
 
 ////////////////////////String conversion utils////////
-def tostr(int num) go
+def tostr(int num) starts
     return to_str(num)
 tostr ends
-def tostr(double num) go
+def tostr(double num) starts
     return to_str(num)
 tostr ends
-def tostr(str s) go
+def tostr(str s) starts
     return to_str(s)
 tostr ends
-def tostr(array<int> arr) go
+def tostr(array<int> arr) starts
     str s = "[ "
     for int i : arr so
         s += tostr(i)
@@ -56,7 +56,7 @@ def tostr(array<int> arr) go
     ends
     return s+"]"
 tostr ends
-def tostr(array<str> arr) go
+def tostr(array<str> arr) starts
     str s = "[ "
     for str i : arr so
         s += "\""
@@ -65,7 +65,7 @@ def tostr(array<str> arr) go
     ends
     return s+"]"
 tostr ends
-def tostr(array<double> arr) go
+def tostr(array<double> arr) starts
     str s = "[ "
     for double i : arr so
         s += to_str(i)
@@ -73,7 +73,7 @@ def tostr(array<double> arr) go
     ends
     return s+"]"
 tostr ends
-def tostr(dict<str,str> d) go
+def tostr(dict<str,str> d) starts
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
@@ -81,7 +81,7 @@ def tostr(dict<str,str> d) go
     ends
     return s
 tostr ends
-def tostr(dict<str,int> d) go
+def tostr(dict<str,int> d) starts
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
@@ -89,32 +89,7 @@ def tostr(dict<str,int> d) go
     ends
     return s
 tostr ends
-def tostr(dict<str,double> d) go
-    str s
-    for var key : d.keys so
-        s += tostr(key) + " : "
-        s += tostr(d[key]) + ", "
-    ends
-    return s
-tostr ends
-
-def tostr(dict<int,str> d) go
-    str s
-    for var key : d.keys so
-        s += tostr(key) + " : "
-        s += tostr(d[key]) + ", "
-    ends
-    return s
-tostr ends
-def tostr(dict<int,int> d) go
-    str s
-    for var key : d.keys so
-        s += tostr(key) + " : "
-        s += tostr(d[key]) + ", "
-    ends
-    return s
-tostr ends
-def tostr(dict<int,double> d) go
+def tostr(dict<str,double> d) starts
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
@@ -123,7 +98,7 @@ def tostr(dict<int,double> d) go
     return s
 tostr ends
 
-def tostr(dict<double,str> d) go
+def tostr(dict<int,str> d) starts
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
@@ -131,7 +106,7 @@ def tostr(dict<double,str> d) go
     ends
     return s
 tostr ends
-def tostr(dict<double,int> d) go
+def tostr(dict<int,int> d) starts
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
@@ -139,7 +114,7 @@ def tostr(dict<double,int> d) go
     ends
     return s
 tostr ends
-def tostr(dict<double,double> d) go
+def tostr(dict<int,double> d) starts
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
@@ -148,7 +123,32 @@ def tostr(dict<double,double> d) go
     return s
 tostr ends
 
-def tostr(dict<str,array<str>> d) go;
+def tostr(dict<double,str> d) starts
+    str s
+    for var key : d.keys so
+        s += tostr(key) + " : "
+        s += tostr(d[key]) + ", "
+    ends
+    return s
+tostr ends
+def tostr(dict<double,int> d) starts
+    str s
+    for var key : d.keys so
+        s += tostr(key) + " : "
+        s += tostr(d[key]) + ", "
+    ends
+    return s
+tostr ends
+def tostr(dict<double,double> d) starts
+    str s
+    for var key : d.keys so
+        s += tostr(key) + " : "
+        s += tostr(d[key]) + ", "
+    ends
+    return s
+tostr ends
+
+def tostr(dict<str,array<str>> d) starts;
     str s;
     for var key : d.keys so
         s += key + " : ";
@@ -158,31 +158,31 @@ def tostr(dict<str,array<str>> d) go;
 tostr ends;
 
 //////////////////////// Smart Pointers ////////////
-template<typename T>class SmartPtr go
+template<typename T>class SmartPtr starts
     public:
         T* ptr;
         int free_call = 0;
-        SmartPtr() go
+        SmartPtr() starts
             
         ends
-        SmartPtr(T* ptr) go
+        SmartPtr(T* ptr) starts
             this->ptr = ptr;
         ends
-        SmartPtr(T v) go
+        SmartPtr(T v) starts
             this->ptr = new T(v);
         ends
-        meth free() go
+        meth free() starts
             free_call=1;
             delete this->ptr;
         ends
         
         //This method is used to allocate the memory.
-        meth allocate(T val) go
+        meth allocate(T val) starts
             free_call = 0;
             // delete ptr;
             this->ptr = new T(val);
         ends
-        ~SmartPtr() go
+        ~SmartPtr() starts
             if free_call == 0 so
                 // char buffer[10];
                 // char *ptr = new char[20];
@@ -191,14 +191,14 @@ template<typename T>class SmartPtr go
                 delete ptr; 
             ends
         ends
-ends
+ends;
 
 //////////////////////// IO ////////////////////////
 
 
 
 //Function to take input
-def input(str prompt = "") go
+def input(str prompt = "") starts
     printf("%s",prompt.Str)
     char i[900000]
     scanf("%[^\n]s",i)
