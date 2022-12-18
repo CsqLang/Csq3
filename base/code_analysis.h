@@ -97,18 +97,29 @@
                 int ln_no = 1;
                 array<str> ncode;
                 array<str> fnblock;
+                str fnname;
                 bool fn_end = true;
                 for(auto ln : raw_code){
                     if(find_str(ln.Str,str("def").Str) == 1 && find_str(ln.Str,str("//").Str) == 0 && find_str(ln.Str,str("#").Str) == 0){
                         fun += ln + "\n";
                         fn_end = false;
                         ln_fnst = ln_no;
+                        str temp = replaceStr(ln.Str,"def ","");
+                        for(int i = 0;i<temp.len();i++){
+                            if(temp[i] == '('){
+                                break;
+                            }
+                            else{
+                                fnname.push_bk(temp[i]);
+                            }
+                        }
                         ln_no++;
                     }
-                    else if(find_str(ln.Str,str("}").Str) == 1  && fn_end == false){
-                        fun += ln + "\n";
+                    else if(find_str(ln.Str,(fnname + " ends").Str) == 1 && fn_end == false){
+                        fun += replaceStr(ln.Str,fnname.Str,"") + "\n"; 
                         fnblock.add(fun);
                         fun = "";
+                        fnname = "";
                         fn_end = true;
                         ln_fnst = 0;
                         ln_no++;
