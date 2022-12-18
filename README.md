@@ -29,6 +29,17 @@ It's processes are similar to the in the programming language Nim but here what 
 > var i = 48 <br>
   //int i = 48
   //But if you want to define a str so don't write like var v = "hello" because in this case it's considered as const char* use var v = str("hello")
+  
+<h3>if else if and else</h3>
+if condition so
+  .....
+ends
+else if condition so
+  .....
+ends
+else go
+  .....
+ends
 <h3>For loop</h3>
 
 > for var i : range(11) so <br>
