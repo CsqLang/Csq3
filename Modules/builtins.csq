@@ -3,60 +3,60 @@ import mainutils
 # *******************Section-->Exceptions*****************
 //overloadings of raise function
 
-def raise(exception::KeyError ke){
+def raise(exception::KeyError ke) go
     ke.getError()
-}
-def raise(exception::MemoryEstrangementError e){
+raise ends
+def raise(exception::MemoryEstrangementError e) go
     e.getError()
-}
-def raise(exception::IndexBoundError ibe){
+raise ends
+def raise(exception::IndexBoundError ibe) go
     ibe.getError()
-}
-def raise(exception::ValueError ve){
+raise ends
+def raise(exception::ValueError ve) go
     ve.getError()
-}
+raise ends
 
 #This function will return the memory address of an object.
-def id(void* add){
+def id(void* add) go
     return (long int)(add)
-}
+id ends
 
 #This function will return an array which could be iterated using for loop.
-def range(int start, int lim, int step = 1){
+def range(int start, int lim, int step = 1) go
     array<int> res
     for int i = start; i < lim; i+=step so
         res += i
     ends
     return res
-}
+range ends
 
-def range(int lim, int step = 1){
+def range(int lim, int step = 1) go
     array<int> res
     for int i = 0; i < lim; i+=step so
         res += i
     ends
     return res
-}
+range ends
 
 ////////////////////////String conversion utils////////
-def tostr(int num){
+def tostr(int num) go
     return to_str(num)
-}
-def tostr(double num){
+tostr ends
+def tostr(double num) go
     return to_str(num)
-}
-def tostr(str s){
+tostr ends
+def tostr(str s) go
     return to_str(s)
-}
-def tostr(array<int> arr){
+tostr ends
+def tostr(array<int> arr) go
     str s = "[ "
     for int i : arr so
         s += tostr(i)
         s += ", "
     ends
     return s+"]"
-}
-def tostr(array<str> arr){
+tostr ends
+def tostr(array<str> arr) go
     str s = "[ "
     for str i : arr so
         s += "\""
@@ -64,98 +64,98 @@ def tostr(array<str> arr){
         s += "\", "
     ends
     return s+"]"
-}
-def tostr(array<double> arr){
+tostr ends
+def tostr(array<double> arr) go
     str s = "[ "
     for double i : arr so
         s += to_str(i)
         s += ", "
     ends
     return s+"]"
-}
-def tostr(dict<str,str> d){
+tostr ends
+def tostr(dict<str,str> d) go
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
         s += tostr(d[key]) + ", "
     ends
     return s
-}
-def tostr(dict<str,int> d){
+tostr ends
+def tostr(dict<str,int> d) go
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
         s += tostr(d[key]) + ", "
     ends
     return s
-}
-def tostr(dict<str,double> d){
+tostr ends
+def tostr(dict<str,double> d) go
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
         s += tostr(d[key]) + ", "
     ends
     return s
-}
+tostr ends
 
-def tostr(dict<int,str> d){
+def tostr(dict<int,str> d) go
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
         s += tostr(d[key]) + ", "
     ends
     return s
-}
-def tostr(dict<int,int> d){
+tostr ends
+def tostr(dict<int,int> d) go
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
         s += tostr(d[key]) + ", "
     ends
     return s
-}
-def tostr(dict<int,double> d){
+tostr ends
+def tostr(dict<int,double> d) go
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
         s += tostr(d[key]) + ", "
     ends
     return s
-}
+tostr ends
 
-def tostr(dict<double,str> d){
+def tostr(dict<double,str> d) go
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
         s += tostr(d[key]) + ", "
     ends
     return s
-}
-def tostr(dict<double,int> d){
+tostr ends
+def tostr(dict<double,int> d) go
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
         s += tostr(d[key]) + ", "
     ends
     return s
-}
-def tostr(dict<double,double> d){
+tostr ends
+def tostr(dict<double,double> d) go
     str s
     for var key : d.keys so
         s += tostr(key) + " : "
         s += tostr(d[key]) + ", "
     ends
     return s
-}
+tostr ends
 
-def tostr(dict<str,array<str>> d){;
+def tostr(dict<str,array<str>> d) go;
     str s;
     for var key : d.keys so
         s += key + " : ";
         s += tostr(d[key]) + ",\n";
     ends;
     return s;
-};
+tostr ends;
 
 //////////////////////// Smart Pointers ////////////
 template<typename T>class SmartPtr go
@@ -195,28 +195,12 @@ ends
 
 //////////////////////// IO ////////////////////////
 
-#Print function
-template<typename T> def print(T t){
-    printf("%s",tostr(t).Str);
-}
-template<typename T, typename... Args> def print(T t, Args... params){
-    printf("%s",tostr(t).Str);
-    print(params...)
-}
-#Println function
-template<typename T> def println(T t){
-    printf("%s",tostr(t).Str);
-}
-template<typename T, typename... Args> def println(T t, Args... params){
-    printf("%s",tostr(t).Str);
-    print(params...)
-    printf("\n");
-}
+
 
 //Function to take input
-def input(str prompt = ""){
+def input(str prompt = "") go
     printf("%s",prompt.Str)
     char i[900000]
     scanf("%[^\n]s",i)
     return str(i)
-}
+input ends
