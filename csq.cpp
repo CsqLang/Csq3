@@ -43,7 +43,7 @@ auto writeIR(str current_dir,str name, str compiler_path){
                 total += replace__import__(ln,current_dir) + "\n";
             }
             else{
-                total += (ln) + "\n";
+                total += replace_meth(replace_class((ln))) + "\n";
             }
             
         }
