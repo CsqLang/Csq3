@@ -23,20 +23,20 @@
     //     return nln;
     // }
 
-    auto replace_for(str ln){
-        str nln;
-        if(find_str(ln.Str,str("for ").Str) == 1){
-            nln = ln + "){";
-        }
-        else{
-            nln = ln;
-        }
-        return nln;
-    }
+    // auto replace_for(str ln){
+    //     str nln;
+    //     if(find_str(ln.Str,str("for ").Str) == 1){
+    //         nln = ln + " so";
+    //     }
+    //     else{
+    //         nln = ln;
+    //     }
+    //     return nln;
+    // }
     auto replace_class(str ln){
         str nln;
         if(find_str(ln.Str,str("class ").Str) == 1){
-            nln = ln + "{";
+            nln = ln + " starts";
         }
         else{
             nln = ln;
@@ -46,7 +46,7 @@
     auto replace_meth(str ln){
         str nln;
         if(find_str(ln.Str,str("pub ").Str) == 1 || find_str(ln.Str,str("priv ").Str) == 1){
-            nln = ln + "{";
+            nln = ln + " starts";
         }
         else{
             nln = ln;
@@ -66,7 +66,15 @@
                 newcode += i + ";";
             }
             else{
-                newcode += i;
+                if(find_str(i.Str,str("for ").Str) == 1 || find_str(i.Str,str("if ").Str) == 1){
+                    newcode.add(str(i+"){"));
+                }
+                else if(find_str(i.Str,str("else").Str)){
+                    newcode.add(str(i+"{"));
+                }
+                else{
+                    newcode.add(i);
+                }
             }
         return newcode;
     }
@@ -109,7 +117,7 @@
                 bool fn_end = true;
                 for(auto ln : raw_code){
                     if(find_str(ln.Str,str("def").Str) == 1 && find_str(ln.Str,str("//").Str) == 0 && find_str(ln.Str,str("#").Str) == 0){
-                        fun += ln + "{\n";
+                        fun += ln + " starts\n";
                         fn_end = false;
                         ln_fnst = ln_no;
                         str temp = replaceStr(ln.Str,"def ","");
@@ -123,8 +131,8 @@
                         }
                         ln_no++;
                     }
-                    else if(find_str(ln.Str,(fnname + " ends").Str) == 1 && fn_end == false){
-                        fun += replaceStr(ln.Str,fnname.Str,"") + "\n"; 
+                    else if((fnname + " ends") == ln && fn_end == false){
+                        fun += replaceStr(ln.Str,(fnname+" ").Str,"") + "\n"; 
                         fnblock.add(fun);
                         fun = "";
                         fnname = "";
@@ -136,18 +144,25 @@
                         fun += ln + "\n";
                         ln_no++;
                     }
-                    else if(find_str(ln.Str,str("if").Str) == 1){
-                        ncode += ln + "){";
-                    }
-                    else if(find_str(ln.Str,str("else").Str) == 1){
-                        ncode += ln + "{";
-                    }
-                    else if(find_str(ln.Str,str("import").Str) == 1){
+                    // else if(find_str(ln.Str,str("if ").Str) == 1 && fn_end == false){
+                    //     fun += ln + "){";
+                    //     ln_no++;
+                    // }
+                    // else if(find_str(ln.Str,str("else").Str) == 1 && fn_end == false){
+                    //     fun += ln + "{";
+                    //     ln_no++;
+                    // }
+                    // else if(find_str(ln.Str,str("for").Str) == 1 && fn_end == false){
+                    //     fun += ln + "){";
+                    // }
+                    else if(find_str(ln.Str,str("import ").Str) == 1){
                         imports.add(ln);
+                        ln_no++;
                     }
                     else if(find_str(ln.Str,str("//").Str) == 1 || find_str(ln.Str,str("#").Str) == 1){}
                     else{
                         ncode += ln;
+                        ln_no++;
                     }
                 }
                 // this->code = ncode;
