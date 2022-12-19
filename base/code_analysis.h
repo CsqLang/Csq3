@@ -24,27 +24,35 @@
     // }
 
     auto replace_for(str ln){
-        array<str> words = split(ln," ");
         str nln;
-        if(find_str(ln.Str,str("for").Str) == 1 && (find_str(ln.Str,str("for").Str)==1 || find_str(ln.Str,str("for").Str)==1)){
-            for(auto w : words){
-                if(w == "for"){
-                    nln += "for(";
-                }
-                else if(w == "{" || w == "go"){
-                    nln += "){";
-                }
-                else{
-                    nln += w + " ";
-                }
-            }
+        if(find_str(ln.Str,str("for ").Str) == 1){
+            nln = ln + "){";
         }
         else{
             nln = ln;
         }
         return nln;
     }
-
+    auto replace_class(str ln){
+        str nln;
+        if(find_str(ln.Str,str("class ").Str) == 1){
+            nln = ln + "{";
+        }
+        else{
+            nln = ln;
+        }
+        return nln;
+    }
+    auto replace_meth(str ln){
+        str nln;
+        if(find_str(ln.Str,str("pub ").Str) == 1 || find_str(ln.Str,str("priv ").Str) == 1){
+            nln = ln + "{";
+        }
+        else{
+            nln = ln;
+        }
+        return nln;
+    }
     //This function will add semicolan at the end of line to avoid ; missing error in C++.
     auto semicolan_adder(array<str> raw_code){
         //Procedure:
@@ -54,7 +62,7 @@
         //Delim is \n because we would like to read each line.
         array<str> newcode;
         for(auto i : raw_code)
-            if(find_str(i.Str,str("for").Str) == 0 && find_str(i.Str,str("class").Str) == 0 && find_str(i.Str,str("#include").Str) == 0 && find_str(i.Str,str("//").Str) == 0 && find_str(i.Str,str(";").Str) == 0 && find_str(i.Str,str("import").Str) == 0 && find_str(i.Str,str("ends").Str) == 0){
+            if(find_str(i.Str,str("pub ").Str) == 0 && find_str(i.Str,str("priv ").Str) == 0 && find_str(i.Str,str("if ").Str) == 0 && find_str(i.Str,str("else").Str) == 0 && find_str(i.Str,str("def ").Str) == 0 && find_str(i.Str,str("for ").Str) == 0 && find_str(i.Str,str("class ").Str) == 0 && find_str(i.Str,str("#include ").Str) == 0 && find_str(i.Str,str("//").Str) == 0 && find_str(i.Str,str(";").Str) == 0 && find_str(i.Str,str("import ").Str) == 0 && find_str(i.Str,str("ends").Str) == 0){
                 newcode += i + ";";
             }
             else{
@@ -101,7 +109,7 @@
                 bool fn_end = true;
                 for(auto ln : raw_code){
                     if(find_str(ln.Str,str("def").Str) == 1 && find_str(ln.Str,str("//").Str) == 0 && find_str(ln.Str,str("#").Str) == 0){
-                        fun += ln + "\n";
+                        fun += ln + "{\n";
                         fn_end = false;
                         ln_fnst = ln_no;
                         str temp = replaceStr(ln.Str,"def ","");
@@ -128,7 +136,12 @@
                         fun += ln + "\n";
                         ln_no++;
                     }
-                    
+                    else if(find_str(ln.Str,str("if").Str) == 1){
+                        ncode += ln + "){";
+                    }
+                    else if(find_str(ln.Str,str("else").Str) == 1){
+                        ncode += ln + "{";
+                    }
                     else if(find_str(ln.Str,str("import").Str) == 1){
                         imports.add(ln);
                     }
