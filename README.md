@@ -42,42 +42,27 @@ else go
 ends
 <h3>For loop</h3>
 
-> for var i : range(11) so <br>
+> for var i : range(11)<br>
   &nbsp;print(i,",") <br>
   ends
   
  <h3>Functions</h3>
 
-> def fizz() starts<br>
+> def fizz()<br>
     &nbsp;return str("BUZZ")<br>
   fizz ends<br>
 
 
  <h3>Functions with arguments</h3>
 
-> def fizz(str name) starts<br>
+> def fizz(str name)<br>
     &nbsp;return name + " BUZZ"<br>
   fizz ends<br>
   fizz("Aniket")<br>
-
-<h3>Creating Classes</h3>
-> class num starts<br>
-  &nbsp;public:<br>
-  &nbsp;&nbsp;int n = 0<br>
-  &nbsp;&nbsp;num(int n) starts<br>
-  &nbsp;&nbsp;&nbsp;this->n = n<br>
-  &nbsp;&nbsp;ends<br>
-  &nbsp;&nbsp;meth square() starts<br>
-  &nbsp;&nbsp;&nbsp;return this->n * this->n<br>
-  &nbsp;&nbsp;ends<br>
-  ends;<br>
-  //Creating an object.<br>
-  var n = num(5)<br>
-  n.square()<br>
   
   
 ## New keywords::
-> ["go","so","ends","meth"]
+> ["priv","pub","ends","meth"]
 ## To comment 
 > to comment you could either use # or //
 ## What's inside base directory?
