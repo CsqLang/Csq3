@@ -1064,7 +1064,7 @@
         print(params...);
     ends
     template<typename T> def println(T t) starts
-        printf("%s",tostr(t).Str);
+        printf("%s\n",tostr(t).Str);
     ends
     template<typename T, typename... Args> def println(T t, Args... params) starts
         printf("%s",tostr(t).Str);
