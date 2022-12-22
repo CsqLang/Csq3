@@ -53,6 +53,7 @@ int main(int argc, char const *argv[]){
         writeIR(argv[2],argv[1],argv[3]);
         compile_IR(argv[2],str(argv[2])+str("/")+str(argv[1]) + ".csqm",argv[1]);
         run(argv[2],argv[1]);
+        system((str("rm ")+str(argv[2])+str("/")+str(argv[1]) + ".cpp").Str);
     }
 
         // printf("%s\n", total.Str);
