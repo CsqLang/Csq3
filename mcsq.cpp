@@ -44,27 +44,6 @@ auto replace__import__(str ln,str curr){
     // printf("%s \n\n\n\n\n",re.Str);
     return __import__(re);
 }
-auto replace_for(str ln){
-        array<str> words = split(ln," ");
-        str nln;
-        if(find_str(ln.Str,str("for").Str) == 1 && (find_str(ln.Str,str("for").Str)==1 || find_str(ln.Str,str("for").Str)==1)){
-            for(auto w : words){
-                if(w == "for"){
-                    nln += "for(";
-                }
-                else if(w == "{" || w == "go"){
-                    nln += "){";
-                }
-                else{
-                    nln += w + " ";
-                }
-            }
-        }
-        else{
-            nln = ln;
-        }
-        return nln;
-    }
 auto IR(str code){
     codeAnalysis ca;
     ca.raw_code = replace_tokens(semicolan_adder(split(code,"\n"))); 
@@ -106,7 +85,7 @@ auto writeIR(str current_dir,str name, str compiler_path){
                 total += replace__import__(ln,current_dir) + "\n";
             }
             else{
-                total += ln + "\n";
+                total += replace_meth(replace_class((ln))) + "\n";
             }
             
         }
