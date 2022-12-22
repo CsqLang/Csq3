@@ -1129,5 +1129,5 @@
             meth get(){
                 return this->arr;
             }
-    ends
+    ends;
 #endif // COMB_CSQV3_h
