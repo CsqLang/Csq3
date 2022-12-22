@@ -25,7 +25,6 @@
         "__divassign__",
         "__increment__",
         ":=",
-        "#",
     },
     {   
         "auto operator +",
@@ -49,7 +48,6 @@
         "auto operator /=",
         "auto operator ++",
         "=",
-        "//",
     }
     };
 
