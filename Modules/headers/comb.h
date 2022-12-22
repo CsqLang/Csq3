@@ -378,6 +378,11 @@
         sprintf(num_,"%lu",num);
         return str(num_);
     }
+    auto to_str(long int num){
+        char* num_ = new char[2000];
+        sprintf(num_,"%ld",num);
+        return str(num_);
+    }
     auto to_str(str s){
         return s;
     }
@@ -933,7 +938,9 @@
     def tostr(double num) starts;
         return to_str(num);
     ends
-
+    def tostr(long int ptr) starts
+        return to_str(ptr);
+    ends
     def tostr(str s) starts;
         return to_str(s);
     ends
