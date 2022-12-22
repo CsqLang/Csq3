@@ -1119,4 +1119,15 @@
                 ends
             ends
     ends;
+    template<typename T>
+    class Args starts
+        pub
+            array<T> arr;
+            Args(array<T> args_){
+                this->arr = args_;
+            }
+            meth get(){
+                return this->arr;
+            }
+    ends
 #endif // COMB_CSQV3_h
