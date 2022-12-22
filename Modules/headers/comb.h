@@ -439,7 +439,17 @@
                     printf("\033[31mTrackback:\n fatal exception thrown by class <%s> : %s at %p\n\n","MemoryEstrangementError","Couldn't access memory",this->mem);
                 }
         };
+        class AssertionError{
+            public:
+                void getError(){
+                    showerror("AssertionError","Condition is false");
+                }
+        };
     }
+    def raise(exception::AssertionError err){
+        err.getError();
+    }
+    #define assert(condition) if condition == false so raise(exception::AssertionError()); ends
 
     #include <initializer_list>
     // #include "str.h"
