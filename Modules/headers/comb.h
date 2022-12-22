@@ -1109,7 +1109,9 @@
                 free_call=1;
                 delete this->ptr;
             ends
-            ;
+            meth address(){
+                return (long int)(id(this->ptr));
+            }
             //This method is used to allocate the memory.
             meth allocate(T val) starts;
                 free_call = 0;
