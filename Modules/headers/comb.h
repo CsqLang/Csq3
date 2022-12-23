@@ -3,6 +3,7 @@
     
     #include <stdio.h>
     // #include <string.h>
+    //KEYWORDS
     #define starts {
     #define so ){
     #define def auto
@@ -14,6 +15,8 @@
     #define for for(
     #define pub public:
     #define priv private:
+
+    //UTILS:::
     char *strcat(char *s1, const char *s2)
     {
         //Pointer should not null pointer
