@@ -6,6 +6,7 @@
     /*
     ********************For Parser ************************
     */
+    //This function will tell that a file exists or not/
     bool file_exists(const char *filename)
     {
         FILE *fp = fopen(filename, "r");
@@ -17,7 +18,7 @@
         }
         return is_exist;
     }
-
+    //By using function file_exists it will check the authe if false so raise import error.
     auto import_authe(str ln){
         if(file_exists(ln.Str) == 0){
             csq_error::ImportError ie;
