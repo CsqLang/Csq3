@@ -1159,12 +1159,6 @@
         scanf("%[^\n]s",i);
         return str(i);
     ends
-
-    // *******************Section-->Exceptions*****************;
-    //overloadings of raise function
-    //This function will return the memory address of an object.;
-    //This function will return an array which could be iterated using for loop.
-    ////////////////////////String conversion utils////////
     //////////////////////// Smart Pointers ////////////
     template<typename T>class SmartPtr starts
         public:;
@@ -1179,6 +1173,7 @@
             SmartPtr(T v) starts;
                 this->ptr = new T(v);
             ends
+            //You could call free method to avoid warning during runtime.
             meth free() starts;
                 free_call=1;
                 delete this->ptr;
