@@ -354,19 +354,6 @@
                 }
                 return a;
             }
-            /**
-             * @brief This method returns the count of null values in the array.
-             * @param notation The notation to be counted by autoault it is NaN.
-             */
-            auto isnull(str notation = "NaN"){
-                int len = 0;
-                for(auto i : this->arr){
-                    if(i == notation){
-                        len++;
-                    }
-                }
-                return len;
-            }
             //This method will return unique values.
             auto unique(){
                 int res = 1;
