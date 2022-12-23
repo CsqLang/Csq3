@@ -7,7 +7,7 @@ auto IR(str code){
     ca.parse_down();
     return array<array<str>>{ca.imports,ca.functions,ca.code};
 }
-//This function will compile IR code
+//This function will compile IR code via g++
 void compile_IR(str current_path, str path, str name){
     str code = read(path);
     write((current_path+name+".cpp").Str,code);
