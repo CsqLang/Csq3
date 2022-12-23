@@ -59,12 +59,14 @@ ends
     &nbsp;return name + " BUZZ"<br>
   fizz ends<br>
   fizz("Aniket")<br>
-  
+ 
+ <h3>Language used in backend</h3>
+ Csq uses C++ at backend to compiler IR codes to generate machine code.
   
 ## New keywords::
 > ["priv","pub","ends","meth"]
 ## To comment 
-> to comment you could either use # or //
+> to comment you could use //
 ## What's inside base directory?
 In base directory all necessary header are present such as for code analysis, strings, arrays ...
 ## How to change add or remove operators:
