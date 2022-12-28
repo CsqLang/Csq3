@@ -3,7 +3,7 @@
     
     #include <stdio.h>
     // #include <string.h>
-    //KEYWORDS
+    //KEYWORD Macros
     #define starts {
     #define so ){
     #define def auto
